@@ -14,7 +14,7 @@
   ],
   "methods": [
     {
-      "name": "receipts",
+      "name": "receipt",
       "summary": "Receipt for a specific Factom object",
       "params": [
         {
@@ -27,11 +27,11 @@
         }
       ],
       "result": {
-        "name": "receipts",
+        "name": "receipt",
         "description": "A receipt for a specific Factom object",
         "schema": {
           "type": "object",
-          "$ref": "#/components/schemas/Receipts"
+          "$ref": "#/components/schemas/Receipt"
         }
       },
       "examples": [
@@ -46,10 +46,21 @@
           "result": {
             "name": "ReceiptsExampleResult",
             "value": {
-              "receipts": [
+              "receipt": {
+                "object": {
+                  "hash": "0ae2ab2cf543eed52a13a5a405bded712444cc8f8b6724a00602e1c8550a4ec2",
+                  "type": "entry",
+                  "directoryblockkeymr": "4358041d6773351dd0a42a8d16778c6544b1196a03c6c41645340cd076a29b6b"
+                },
+                "anchors": [
                 {
                 "ledger": "bitcoin",
                 "type": "blockchain",
+                "timestamp": 1614699582,
+                "txhash": "469a96c847cf8bf1f325b6eec850f46488ed671930d62b54ed186a8031477a7d",
+                "blockhash": "000000000000000001edf3adf719dfc1263661d2c4b0ed779d004a2cbb7cca32",
+                "rawtx": "0100000001b2d485b321e43dc7f7807941c51e4437881f10a7556ccc1b4065aa9d9faf5a41010000006a4730440220144f2884de0df5d39ddcbb27bf406c98fffce7da0ffda7b7f3d64a01ca62eb2d022008cd40c0193a007411721f702313233a3976f4c8f022e1e2c4e23bec7796db980121027e706cd1c919431b693a0247e4a239e632659a8723a621a91ec610c64f4173acffffffff0200000000000000002a6a284661000000003a984358041d6773351dd0a42a8d16778c6544b1196a03c6c41645340cd076a29b6b60dc2c00000000001976a914c5b7fd920dce5f61934e792c7e6fcc829aff533d88ac00000000",
+                "rawblock": "04000000f32e4bd04557ac05efb25ac354fe6e20bdd064df924f8d010000000000000000d77b7dc967db3b5dcdcea40e093537baf7a45c208a33a20a7d60b996ef4647e13c856f564fe60d18380fb764fdde07",
                 "merklebranch": [
                   {
                     "left": "0ae2ab2cf543eed52a13a5a405bded712444cc8f8b6724a00602e1c8550a4ec2",
@@ -76,21 +87,10 @@
                     "right": "3d93579d9f5b22387cb46c1ad280da9ba9e1fe753972ef08d9e9f1c938a765c0",
                     "top": "6c83c08ee21925ce8c958a3b0b5da21bb04d66465f6f1366783f637bcdbb9d47"
                   }
-                ],
-                "anchor": {
-                  "entryhash": "4358041d6773351dd0a42a8d16778c6544b1196a03c6c41645340cd076a29b6b",
-                  "entryblockkeymr": "041c3fed14469a3d0f1a022e3d5321583065e691edb9223605c86766ff881883",
-                  "directoryblockkeymr": "e14746ef96b9607d0aa2338a205ca4f7ba3735090ea4cecd5d3bdb67c97d7bd7"
-                },
-                "tx": {
-                    "timestamp": 1614699582,
-                    "tx": "0100000001b2d485b321e43dc7f7807941c51e4437881f10a7556ccc1b4065aa9d9faf5a41010000006a4730440220144f2884de0df5d39ddcbb27bf406c98fffce7da0ffda7b7f3d64a01ca62eb2d022008cd40c0193a007411721f702313233a3976f4c8f022e1e2c4e23bec7796db980121027e706cd1c919431b693a0247e4a239e632659a8723a621a91ec610c64f4173acffffffff0200000000000000002a6a284661000000003a984358041d6773351dd0a42a8d16778c6544b1196a03c6c41645340cd076a29b6b60dc2c00000000001976a914c5b7fd920dce5f61934e792c7e6fcc829aff533d88ac00000000",
-                    "txhash": "469a96c847cf8bf1f325b6eec850f46488ed671930d62b54ed186a8031477a7d",
-                    "block": "04000000f32e4bd04557ac05efb25ac354fe6e20bdd064df924f8d010000000000000000d77b7dc967db3b5dcdcea40e093537baf7a45c208a33a20a7d60b996ef4647e13c856f564fe60d18380fb764fdde07",
-                    "blockhash": "000000000000000001edf3adf719dfc1263661d2c4b0ed779d004a2cbb7cca32"
-                }
+                ]
                 }
               ]
+              }
             }
           }
         }
@@ -222,39 +222,19 @@
           "$ref": "#/components/schemas/LeftRightTop"
         }
       },
-      "BlockchainTx": {
+      "FactomObject": {
         "type": "object",
         "properties": {
-          "timestamp": {
-            "type": "integer"
-          },
-          "tx": {
+          "hash": {
+            "description": "Hash of the Factom object",
             "type": "string"
           },
-          "txhash": {
-            "type": "string"
-          },
-          "block": {
-            "type": "string"
-          },
-          "blockhash": {
-            "type": "string"
-          }
-        }
-      },
-      "Anchor": {
-        "type": "object",
-        "properties": {
-          "entryhash": {
-            "description": "Hash of the anchor entry",
-            "type": "string"
-          },
-          "entryblockkeymr": {
-            "description": "Hash of an entry block, containing the anchor entry",
+          "type": {
+            "description": "Type of the Factom object",
             "type": "string"
           },
           "directoryblockkeymr": {
-            "description": "Hash of a directory block, containing the anchor entry",
+            "description": "Hash of the parent directory block, anchored into external ledgers",
             "type": "string"
           }
         }
@@ -276,7 +256,7 @@
           }
         }
       },
-      "Receipt": {
+      "Anchor": {
         "type": "object",
         "properties": {
           "ledger": {
@@ -287,21 +267,41 @@
             "description": "Ledger type",
             "type": "string"
           },
+          "timestamp": {
+            "type": "integer"
+          },
+          "txhash": {
+            "type": "string"
+          },
+          "blockhash": {
+            "type": "string"
+          },
+          "rawtx": {
+            "type": "string"
+          },
+          "rawblock": {
+            "type": "string"
+          },
           "merklebranch": {
             "$ref": "#/components/schemas/Merklebranch"
-          },
-          "anchor": {
-            "$ref": "#/components/schemas/Anchor"
-          },
-          "tx": {
-            "$ref": "#/components/schemas/BlockchainTx"
           }
         }
       },
-      "Receipts": {
+      "Anchors": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/Receipt"
+          "$ref": "#/components/schemas/Anchor"
+        }
+      },
+      "Receipt": {
+        "type": "object",
+        "properties": {
+          "object": {
+            "$ref": "#/components/schemas/FactomObject"
+          },
+          "anchors": {
+            "$ref": "#/components/schemas/Anchors"
+          }
         }
       },
       "Anchormakers": {
