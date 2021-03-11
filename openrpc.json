@@ -1,346 +1,334 @@
 {
-    "openrpc": "1.0.0-rc1",
-    "info": {
-      "version": "1.0.0",
-      "title": "Factom Anchoring API",
-      "license": {
-        "name": "MIT"
-      }
-    },
-    "servers": [
-      {
-        "url": "http://localhost:8082/v2"
-      }
-    ],
-    "methods": [
-      {
-        "name": "receipt",
-        "summary": "Receipt for a specific Factom object",
-        "params": [
-          {
-            "name": "hash",
-            "description": "Hash of Factom object",
-            "schema": {
-              "type": "string"
-            }
+  "openrpc": "1.0.0-rc1",
+  "info": {
+    "version": "1.0.0",
+    "title": "Factom Anchoring API",
+    "license": {
+      "name": "MIT"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8082/v2"
+    }
+  ],
+  "methods": [
+    {
+      "name": "receipts",
+      "summary": "Receipt for a specific Factom object",
+      "params": [
+        {
+          "name": "hash",
+          "description": "Hash of Factom object",
+          "schema": {
+            "type": "string"
           },
-          {
-            "name": "height",
-            "description": "Height of Factom DBlock",
-            "schema": {
-              "type": "integer",
-              "minimum": 0
-            }
-          }
-        ],
-        "result": {
-          "name": "receipt",
-          "description": "A receipt for a specific Factom object",
-          "schema": {
-            "type": "object",
-            "$ref": "#/components/schemas/Receipt"
-          }
-        },
-        "examples": [
-          {
-            "name": "ReceiptExample",
-            "params": [
-              {
-                "name": "hash",
-                "value": "0ae2ab2cf543eed52a13a5a405bded712444cc8f8b6724a00602e1c8550a4ec2"
-              }
-            ],
-            "result": {
-              "name": "ReceiptExampleResult",
-              "value": {
-                "receipt": {
-                  "object": {
-                    "hash": "0ae2ab2cf543eed52a13a5a405bded712444cc8f8b6724a00602e1c8550a4ec2",
-                    "type": "entry"
-                  },
-                  "merklebranch": [
-                    {
-                      "left": "0ae2ab2cf543eed52a13a5a405bded712444cc8f8b6724a00602e1c8550a4ec2",
-                      "right": "0000000000000000000000000000000000000000000000000000000000000003",
-                      "top": "d2f3554d8394dc59932383de36dd742449d1c25ef1d21cdab07c4b9f044356af"
-                    },
-                    {
-                      "left": "6adbc7ba1758f2850c92e4a09dea8ba9c6d844cdd4d596db2421b0f843c3e530",
-                      "right": "d2f3554d8394dc59932383de36dd742449d1c25ef1d21cdab07c4b9f044356af",
-                      "top": "041c3fed14469a3d0f1a022e3d5321583065e691edb9223605c86766ff881883"
-                    },
-                    {
-                      "left": "0caff62ea5b5aa015c706add7b2463a5be07e1f0537617f553558090f23c7f56",
-                      "right": "041c3fed14469a3d0f1a022e3d5321583065e691edb9223605c86766ff881883",
-                      "top": "434ea8fc39fa1686035b4c993ef2c62ee67f67332fc59da1d373f33140d7c2b5"
-                    },
-                    {
-                      "left": "434ea8fc39fa1686035b4c993ef2c62ee67f67332fc59da1d373f33140d7c2b5",
-                      "right": "1deef358d7e02adfe353f8137d1535e34f112d7a3b9fbf06b5c64dee5e4b2042",
-                      "top": "9482ce541c7198e21947c3043f12dddda6184bb4928f01ae2c3f885b2ed3d5bb"
-                    },
-                    {
-                      "left": "9482ce541c7198e21947c3043f12dddda6184bb4928f01ae2c3f885b2ed3d5bb",
-                      "right": "3d93579d9f5b22387cb46c1ad280da9ba9e1fe753972ef08d9e9f1c938a765c0",
-                      "top": "6c83c08ee21925ce8c958a3b0b5da21bb04d66465f6f1366783f637bcdbb9d47"
-                    }
-                  ],
-                  "anchor": "4358041d6773351dd0a42a8d16778c6544b1196a03c6c41645340cd076a29b6b",
-                  "entryblockkeymr": "041c3fed14469a3d0f1a022e3d5321583065e691edb9223605c86766ff881883",
-                  "directoryblockkeymr": "e14746ef96b9607d0aa2338a205ca4f7ba3735090ea4cecd5d3bdb67c97d7bd7",
-                  "blockchains": [
-                    {
-                      "name": "bitcoin",
-                      "type": "blockchain",
-                      "timestamp": 1614699582,
-                      "transaction": "0100000001b2d485b321e43dc7f7807941c51e4437881f10a7556ccc1b4065aa9d9faf5a41010000006a4730440220144f2884de0df5d39ddcbb27bf406c98fffce7da0ffda7b7f3d64a01ca62eb2d022008cd40c0193a007411721f702313233a3976f4c8f022e1e2c4e23bec7796db980121027e706cd1c919431b693a0247e4a239e632659a8723a621a91ec610c64f4173acffffffff0200000000000000002a6a284661000000003a984358041d6773351dd0a42a8d16778c6544b1196a03c6c41645340cd076a29b6b60dc2c00000000001976a914c5b7fd920dce5f61934e792c7e6fcc829aff533d88ac00000000",
-                      "transactionhash": "469a96c847cf8bf1f325b6eec850f46488ed671930d62b54ed186a8031477a7d",
-                      "block": "04000000f32e4bd04557ac05efb25ac354fe6e20bdd064df924f8d010000000000000000d77b7dc967db3b5dcdcea40e093537baf7a45c208a33a20a7d60b996ef4647e13c856f564fe60d18380fb764fdde07",
-                      "blockhash": "000000000000000001edf3adf719dfc1263661d2c4b0ed779d004a2cbb7cca32"
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        ]
+          "required": true
+        }
+      ],
+      "result": {
+        "name": "receipts",
+        "description": "A receipt for a specific Factom object",
+        "schema": {
+          "type": "object",
+          "$ref": "#/components/schemas/Receipts"
+        }
       },
-      {
-        "name": "anchormakers",
-        "summary": "Anchor Maker set at the latest or specific Factom height",
-        "params": [
-          {
-            "name": "height",
-            "required": false,
-            "description": "Height of Factom DBlock",
-            "schema": {
-              "type": "integer",
-              "minimum": 0
+      "examples": [
+        {
+          "name": "ReceiptsExample",
+          "params": [
+            {
+              "name": "hash",
+              "value": "0ae2ab2cf543eed52a13a5a405bded712444cc8f8b6724a00602e1c8550a4ec2"
+            }
+          ],
+          "result": {
+            "name": "ReceiptsExampleResult",
+            "value": {
+              "receipts": [
+                {
+                "ledger": "bitcoin",
+                "type": "blockchain",
+                "merklebranch": [
+                  {
+                    "left": "0ae2ab2cf543eed52a13a5a405bded712444cc8f8b6724a00602e1c8550a4ec2",
+                    "right": "0000000000000000000000000000000000000000000000000000000000000003",
+                    "top": "d2f3554d8394dc59932383de36dd742449d1c25ef1d21cdab07c4b9f044356af"
+                  },
+                  {
+                    "left": "6adbc7ba1758f2850c92e4a09dea8ba9c6d844cdd4d596db2421b0f843c3e530",
+                    "right": "d2f3554d8394dc59932383de36dd742449d1c25ef1d21cdab07c4b9f044356af",
+                    "top": "041c3fed14469a3d0f1a022e3d5321583065e691edb9223605c86766ff881883"
+                  },
+                  {
+                    "left": "0caff62ea5b5aa015c706add7b2463a5be07e1f0537617f553558090f23c7f56",
+                    "right": "041c3fed14469a3d0f1a022e3d5321583065e691edb9223605c86766ff881883",
+                    "top": "434ea8fc39fa1686035b4c993ef2c62ee67f67332fc59da1d373f33140d7c2b5"
+                  },
+                  {
+                    "left": "434ea8fc39fa1686035b4c993ef2c62ee67f67332fc59da1d373f33140d7c2b5",
+                    "right": "1deef358d7e02adfe353f8137d1535e34f112d7a3b9fbf06b5c64dee5e4b2042",
+                    "top": "9482ce541c7198e21947c3043f12dddda6184bb4928f01ae2c3f885b2ed3d5bb"
+                  },
+                  {
+                    "left": "9482ce541c7198e21947c3043f12dddda6184bb4928f01ae2c3f885b2ed3d5bb",
+                    "right": "3d93579d9f5b22387cb46c1ad280da9ba9e1fe753972ef08d9e9f1c938a765c0",
+                    "top": "6c83c08ee21925ce8c958a3b0b5da21bb04d66465f6f1366783f637bcdbb9d47"
+                  }
+                ],
+                "anchor": {
+                  "entryhash": "4358041d6773351dd0a42a8d16778c6544b1196a03c6c41645340cd076a29b6b",
+                  "entryblockkeymr": "041c3fed14469a3d0f1a022e3d5321583065e691edb9223605c86766ff881883",
+                  "directoryblockkeymr": "e14746ef96b9607d0aa2338a205ca4f7ba3735090ea4cecd5d3bdb67c97d7bd7"
+                },
+                "tx": {
+                    "timestamp": 1614699582,
+                    "tx": "0100000001b2d485b321e43dc7f7807941c51e4437881f10a7556ccc1b4065aa9d9faf5a41010000006a4730440220144f2884de0df5d39ddcbb27bf406c98fffce7da0ffda7b7f3d64a01ca62eb2d022008cd40c0193a007411721f702313233a3976f4c8f022e1e2c4e23bec7796db980121027e706cd1c919431b693a0247e4a239e632659a8723a621a91ec610c64f4173acffffffff0200000000000000002a6a284661000000003a984358041d6773351dd0a42a8d16778c6544b1196a03c6c41645340cd076a29b6b60dc2c00000000001976a914c5b7fd920dce5f61934e792c7e6fcc829aff533d88ac00000000",
+                    "txhash": "469a96c847cf8bf1f325b6eec850f46488ed671930d62b54ed186a8031477a7d",
+                    "block": "04000000f32e4bd04557ac05efb25ac354fe6e20bdd064df924f8d010000000000000000d77b7dc967db3b5dcdcea40e093537baf7a45c208a33a20a7d60b996ef4647e13c856f564fe60d18380fb764fdde07",
+                    "blockhash": "000000000000000001edf3adf719dfc1263661d2c4b0ed779d004a2cbb7cca32"
+                }
+                }
+              ]
             }
           }
-        ],
-        "result": {
-          "name": "anchormakers",
-          "description": "An array of anchormakers",
+        }
+      ]
+    },
+    {
+      "name": "anchormakers",
+      "summary": "Anchor Maker set at the latest or specific Factom height",
+      "params": [
+        {
+          "name": "height",
+          "required": false,
+          "description": "Height of Factom DBlock",
           "schema": {
-            "type": "object",
-            "$ref": "#/components/schemas/Anchormakers"
+            "type": "integer",
+            "minimum": 0
           }
-        },
-        "examples": [
-          {
-            "name": "AnchormakersExample",
-            "params": [
-              {
-                "name": "height",
-                "value": 275001
-              }
-            ],
-            "result": {
-              "name": "AnchormakersExampleResult",
-              "value": {
-                "anchormakers": [
-                    {
-                      "blockchain": "bitcoin",
-                      "address": "3HfLtfVSddZv5HGLYfJbUbNBfJdgkau5ZQ",
-                      "identitychainid": "888888655866a003faabd999c7b0a7c908af17d63fd2ac2951dc99e1ad2a14f4"
-                    },
-                    {
-                      "blockchain": "ethereum",
-                      "address": "0xFe44DAeb65166846fccb3f4aA7186e36247b1C1E",
-                      "identitychainid": "888888655866a003faabd999c7b0a7c908af17d63fd2ac2951dc99e1ad2a14f4"
-                    },
-                    {
-                      "blockchain": "stellar",
-                      "address": "GAF44237DTEZIDDMXBJ4KJRA3SUSP45ZXPRUZ3G7MB3JD2KJ2LPF6VBX",
-                      "identitychainid": "888888b02c99d60b41357f5e28a1e96f4b90d370f6a460f2062cdda64e3fc7a4"
-                    }
+        }
+      ],
+      "result": {
+        "name": "anchormakers",
+        "description": "An array of anchormakers",
+        "schema": {
+          "type": "object",
+          "$ref": "#/components/schemas/Anchormakers"
+        }
+      },
+      "examples": [
+        {
+          "name": "AnchormakersExample",
+          "params": [
+            {
+              "name": "height",
+              "value": 275001
+            }
+          ],
+          "result": {
+            "name": "AnchormakersExampleResult",
+            "value": {
+              "anchormakers": [
+                  {
+                    "ledger": "bitcoin",
+                    "address": "3HfLtfVSddZv5HGLYfJbUbNBfJdgkau5ZQ",
+                    "identitychainid": "888888655866a003faabd999c7b0a7c908af17d63fd2ac2951dc99e1ad2a14f4"
+                  },
+                  {
+                    "ledger": "ethereum",
+                    "address": "0xFe44DAeb65166846fccb3f4aA7186e36247b1C1E",
+                    "identitychainid": "888888655866a003faabd999c7b0a7c908af17d63fd2ac2951dc99e1ad2a14f4"
+                  },
+                  {
+                    "ledger": "stellar",
+                    "address": "GAF44237DTEZIDDMXBJ4KJRA3SUSP45ZXPRUZ3G7MB3JD2KJ2LPF6VBX",
+                    "identitychainid": "888888b02c99d60b41357f5e28a1e96f4b90d370f6a460f2062cdda64e3fc7a4"
+                  }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "heights",
+      "summary": "Factom Heights and latest anchors heights",
+      "params": [],
+      "result": {
+        "name": "heights",
+        "description": "Heights response",
+        "schema": {
+          "type": "object",
+          "$ref": "#/components/schemas/Heights"
+        }
+      },
+      "examples": [
+        {
+          "name": "HeightsExample",
+          "params": [],
+          "result": {
+            "name": "HeightsExampleResult",
+            "value": {
+              "heights": {
+                "directoryblockheight": 275001,
+                "entryheight": 275001,
+                "anchorheight": [
+                  {
+                    "ledger": "bitcoin",
+                    "height": 274905
+                  },
+                  {
+                    "ledger": "ethereum",
+                    "height": 274750
+                  },
+                  {
+                    "ledger": "stellar",
+                    "height": 275000
+                  }
                 ]
               }
             }
           }
-        ]
+        }
+      ]
+    }
+  ],
+  "components": {
+    "schemas": {
+      "LeftRightTop": {
+        "type": "object",
+        "required": [
+          "left",
+          "top",
+          "right"
+        ],
+        "properties": {
+          "left": {
+            "type": "string"
+          },
+          "right": {
+            "type": "string"
+          },
+          "top": {
+            "type": "string"
+          }
+        }
       },
-      {
-        "name": "heights",
-        "summary": "Factom Heights and latest anchors heights",
-        "params": [],
-        "result": {
-          "name": "heights",
-          "description": "Heights response",
-          "schema": {
-            "type": "object",
-            "$ref": "#/components/schemas/Heights"
+      "Merklebranch": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/LeftRightTop"
+        }
+      },
+      "BlockchainTx": {
+        "type": "object",
+        "properties": {
+          "timestamp": {
+            "type": "integer"
+          },
+          "tx": {
+            "type": "string"
+          },
+          "txhash": {
+            "type": "string"
+          },
+          "block": {
+            "type": "string"
+          },
+          "blockhash": {
+            "type": "string"
           }
-        },
-        "examples": [
-          {
-            "name": "HeightsExample",
-            "params": [],
-            "result": {
-              "name": "HeightsExampleResult",
-              "value": {
-                "heights": {
-                  "directoryblockheight": 275001,
-                  "entryheight": 275001,
-                  "anchors": [
-                    {
-                      "blockchain": "bitcoin",
-                      "height": 274905
-                    },
-                    {
-                      "blockchain": "ethereum",
-                      "height": 274750
-                    },
-                    {
-                      "blockchain": "stellar",
-                      "height": 275000
-                    }
-                  ]
-                }
-              }
-            }
+        }
+      },
+      "Anchor": {
+        "type": "object",
+        "properties": {
+          "entryhash": {
+            "description": "Hash of the anchor entry",
+            "type": "string"
+          },
+          "entryblockkeymr": {
+            "description": "Hash of an entry block, containing the anchor entry",
+            "type": "string"
+          },
+          "directoryblockkeymr": {
+            "description": "Hash of a directory block, containing the anchor entry",
+            "type": "string"
           }
-        ]
-      }
-    ],
-    "components": {
-      "schemas": {
-        "LeftRightTop": {
-          "type": "object",
-          "required": [
-            "left",
-            "top",
-            "right"
-          ],
-          "properties": {
-            "left": {
-              "type": "string"
-            },
-            "right": {
-              "type": "string"
-            },
-            "top": {
-              "type": "string"
-            }
+        }
+      },
+      "Anchormaker": {
+        "type": "object",
+        "properties": {
+          "ledger": {
+            "description": "External blockchain name",
+            "type": "string"
+          },
+          "address": {
+            "description": "An address on the external blockchain (payer address or identity)",
+            "type": "string"
+          },
+          "identitychainid": {
+            "description": "Identity Chain ID of the Anchormaker",
+            "type": "string"
           }
-        },
-        "Merklebranch": {
-          "type": "array",
-          "items": {
-            "$ref": "#/components/schemas/LeftRightTop"
+        }
+      },
+      "Receipt": {
+        "type": "object",
+        "properties": {
+          "ledger": {
+            "description": "Ledger name",
+            "type": "string"
+          },
+          "type": {
+            "description": "Ledger type",
+            "type": "string"
+          },
+          "merklebranch": {
+            "$ref": "#/components/schemas/Merklebranch"
+          },
+          "anchor": {
+            "$ref": "#/components/schemas/Anchor"
+          },
+          "tx": {
+            "$ref": "#/components/schemas/BlockchainTx"
           }
-        },
-        "FactomObject": {
-          "type": "object",
-          "properties": {
-            "hash": {
-              "type": "string"
-            },
-            "type": {
-              "type": "string"
-            }
-          }
-        },
-        "Blockchain": {
-          "type": "object",
-          "properties": {
-            "name": {
-              "type": "string"
-            },
-            "type": {
-              "type": "string"
-            },
-            "timestamp": {
-              "type": "string"
-            },
-            "transaction": {
-              "type": "string"
-            },
-            "transactionhash": {
-              "type": "string"
-            },
-            "block": {
-              "type": "string"
-            },
-            "blockhash": {
-              "type": "string"
-            }
-          }
-        },
-        "Anchormaker": {
-          "type": "object",
-          "properties": {
-            "blockchain": {
-              "description": "External blockchain name",
-              "type": "string"
-            },
-            "address": {
-              "description": "An address on the external blockchain (payer address or identity)",
-              "type": "string"
-            },
-            "identitychainid": {
-              "description": "Identity Chain ID of the Anchormaker",
-              "type": "string"
-            }
-          }
-        },
-        "Receipt": {
-          "type": "object",
-          "properties": {
-            "object": {
-              "description": "Factom object hash and type",
-              "$ref": "#/components/schemas/FactomObject"
-            },
-            "merklebranch": {
-              "$ref": "#/components/schemas/Merklebranch"
-            },
-            "anchor": {
-              "description": "Hash of the anchor entry",
-              "type": "string"
-            },
-            "entryblockkeymr": {
-              "description": "Hash of an entry block, containing the anchor entry",
-              "type": "string"
-            },
-            "directoryblockkeymr": {
-              "description": "Hash of an directory block, containing the anchor entry",
-              "type": "string"
-            },
-            "blockchains": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/Blockchain"
-              }
-            }
-          }
-        },
-        "Anchormakers": {
-          "type": "array",
-          "items": {
-            "$ref": "#/components/schemas/Anchormaker"
-          }
-        },
-        "Heights": {
-          "type": "object",
-          "properties": {
-            "directoryblockheight": {
-              "type": "integer"
-            },
-            "entryblockheight": {
-              "type": "integer"
-            },
-            "anchors": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "blockchain": {
-                    "type": "string"
-                  },
-                  "height": {
-                    "type": "integer"
-                  }
+        }
+      },
+      "Receipts": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Receipt"
+        }
+      },
+      "Anchormakers": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Anchormaker"
+        }
+      },
+      "Heights": {
+        "type": "object",
+        "properties": {
+          "directoryblockheight": {
+            "type": "integer"
+          },
+          "entryblockheight": {
+            "type": "integer"
+          },
+          "anchorheight": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "ledger": {
+                  "type": "string"
+                },
+                "height": {
+                  "type": "integer"
                 }
               }
             }
@@ -349,3 +337,4 @@
       }
     }
   }
+}
