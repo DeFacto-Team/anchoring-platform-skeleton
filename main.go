@@ -75,6 +75,9 @@ func main() {
 
 	log.Printf("Factomd endpoint: %s\n", conf.Factom.Endpoint)
 
+	// UI
+	http.Handle("/", http.FileServer(http.Dir("ui/build")))
+
 	// API endpoint
 	http.HandleFunc("/v2", func(w http.ResponseWriter, req *http.Request) {
 		defer req.Body.Close()
