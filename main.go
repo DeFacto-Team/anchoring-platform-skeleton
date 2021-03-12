@@ -73,7 +73,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	log.Printf("Factomd endpoint: %s\n", conf.Factomd)
+	log.Printf("Factomd endpoint: %s\n", conf.Factom.Endpoint)
 
 	// API endpoint
 	http.HandleFunc("/v2", func(w http.ResponseWriter, req *http.Request) {
