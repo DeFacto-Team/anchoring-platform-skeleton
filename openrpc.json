@@ -24,6 +24,14 @@
             "type": "string"
           },
           "required": true
+        },
+        {
+          "name": "ledger",
+          "description": "Name of the external ledger",
+          "schema": {
+            "type": "string"
+          },
+          "required": true
         }
       ],
       "result": {
@@ -41,6 +49,10 @@
             {
               "name": "hash",
               "value": "0ae2ab2cf543eed52a13a5a405bded712444cc8f8b6724a00602e1c8550a4ec2"
+            },
+            {
+              "name": "ledger",
+              "value": "btc"
             }
           ],
           "result": {
@@ -50,46 +62,45 @@
                 "object": {
                   "hash": "0ae2ab2cf543eed52a13a5a405bded712444cc8f8b6724a00602e1c8550a4ec2",
                   "type": "entry",
-                  "directoryblockkeymr": "4358041d6773351dd0a42a8d16778c6544b1196a03c6c41645340cd076a29b6b"
+                  "directoryblockheight": 15000
                 },
-                "anchors": [
-                {
-                "ledger": "bitcoin",
-                "type": "blockchain",
-                "timestamp": 1614699582,
-                "txhash": "469a96c847cf8bf1f325b6eec850f46488ed671930d62b54ed186a8031477a7d",
-                "blockhash": "000000000000000001edf3adf719dfc1263661d2c4b0ed779d004a2cbb7cca32",
-                "rawtx": "0100000001b2d485b321e43dc7f7807941c51e4437881f10a7556ccc1b4065aa9d9faf5a41010000006a4730440220144f2884de0df5d39ddcbb27bf406c98fffce7da0ffda7b7f3d64a01ca62eb2d022008cd40c0193a007411721f702313233a3976f4c8f022e1e2c4e23bec7796db980121027e706cd1c919431b693a0247e4a239e632659a8723a621a91ec610c64f4173acffffffff0200000000000000002a6a284661000000003a984358041d6773351dd0a42a8d16778c6544b1196a03c6c41645340cd076a29b6b60dc2c00000000001976a914c5b7fd920dce5f61934e792c7e6fcc829aff533d88ac00000000",
-                "rawblock": "04000000f32e4bd04557ac05efb25ac354fe6e20bdd064df924f8d010000000000000000d77b7dc967db3b5dcdcea40e093537baf7a45c208a33a20a7d60b996ef4647e13c856f564fe60d18380fb764fdde07",
-                "merklebranch": [
-                  {
-                    "left": "0ae2ab2cf543eed52a13a5a405bded712444cc8f8b6724a00602e1c8550a4ec2",
-                    "right": "0000000000000000000000000000000000000000000000000000000000000003",
-                    "top": "d2f3554d8394dc59932383de36dd742449d1c25ef1d21cdab07c4b9f044356af"
-                  },
-                  {
-                    "left": "6adbc7ba1758f2850c92e4a09dea8ba9c6d844cdd4d596db2421b0f843c3e530",
-                    "right": "d2f3554d8394dc59932383de36dd742449d1c25ef1d21cdab07c4b9f044356af",
-                    "top": "041c3fed14469a3d0f1a022e3d5321583065e691edb9223605c86766ff881883"
-                  },
-                  {
-                    "left": "0caff62ea5b5aa015c706add7b2463a5be07e1f0537617f553558090f23c7f56",
-                    "right": "041c3fed14469a3d0f1a022e3d5321583065e691edb9223605c86766ff881883",
-                    "top": "434ea8fc39fa1686035b4c993ef2c62ee67f67332fc59da1d373f33140d7c2b5"
-                  },
-                  {
-                    "left": "434ea8fc39fa1686035b4c993ef2c62ee67f67332fc59da1d373f33140d7c2b5",
-                    "right": "1deef358d7e02adfe353f8137d1535e34f112d7a3b9fbf06b5c64dee5e4b2042",
-                    "top": "9482ce541c7198e21947c3043f12dddda6184bb4928f01ae2c3f885b2ed3d5bb"
-                  },
-                  {
-                    "left": "9482ce541c7198e21947c3043f12dddda6184bb4928f01ae2c3f885b2ed3d5bb",
-                    "right": "3d93579d9f5b22387cb46c1ad280da9ba9e1fe753972ef08d9e9f1c938a765c0",
-                    "top": "6c83c08ee21925ce8c958a3b0b5da21bb04d66465f6f1366783f637bcdbb9d47"
-                  }
-                ]
+                "anchor": {
+                  "anchorhash": "4358041d6773351dd0a42a8d16778c6544b1196a03c6c41645340cd076a29b6b",
+                  "directoryblockheight": 15010,
+                  "ledger": "btc",
+                  "timestamp": 1614699582,
+                  "txhash": "469a96c847cf8bf1f325b6eec850f46488ed671930d62b54ed186a8031477a7d",
+                  "blockhash": "000000000000000001edf3adf719dfc1263661d2c4b0ed779d004a2cbb7cca32",
+                  "rawtx": "0100000001b2d485b321e43dc7f7807941c51e4437881f10a7556ccc1b4065aa9d9faf5a41010000006a4730440220144f2884de0df5d39ddcbb27bf406c98fffce7da0ffda7b7f3d64a01ca62eb2d022008cd40c0193a007411721f702313233a3976f4c8f022e1e2c4e23bec7796db980121027e706cd1c919431b693a0247e4a239e632659a8723a621a91ec610c64f4173acffffffff0200000000000000002a6a284661000000003a984358041d6773351dd0a42a8d16778c6544b1196a03c6c41645340cd076a29b6b60dc2c00000000001976a914c5b7fd920dce5f61934e792c7e6fcc829aff533d88ac00000000",
+                  "rawblock": "04000000f32e4bd04557ac05efb25ac354fe6e20bdd064df924f8d010000000000000000d77b7dc967db3b5dcdcea40e093537baf7a45c208a33a20a7d60b996ef4647e13c856f564fe60d18380fb764fdde07",
+                  "merklebranch": [
+                    {
+                      "left": "0ae2ab2cf543eed52a13a5a405bded712444cc8f8b6724a00602e1c8550a4ec2",
+                      "right": "0000000000000000000000000000000000000000000000000000000000000003",
+                      "top": "d2f3554d8394dc59932383de36dd742449d1c25ef1d21cdab07c4b9f044356af"
+                    },
+                    {
+                      "left": "6adbc7ba1758f2850c92e4a09dea8ba9c6d844cdd4d596db2421b0f843c3e530",
+                      "right": "d2f3554d8394dc59932383de36dd742449d1c25ef1d21cdab07c4b9f044356af",
+                      "top": "041c3fed14469a3d0f1a022e3d5321583065e691edb9223605c86766ff881883"
+                    },
+                    {
+                      "left": "0caff62ea5b5aa015c706add7b2463a5be07e1f0537617f553558090f23c7f56",
+                      "right": "041c3fed14469a3d0f1a022e3d5321583065e691edb9223605c86766ff881883",
+                      "top": "434ea8fc39fa1686035b4c993ef2c62ee67f67332fc59da1d373f33140d7c2b5"
+                    },
+                    {
+                      "left": "434ea8fc39fa1686035b4c993ef2c62ee67f67332fc59da1d373f33140d7c2b5",
+                      "right": "1deef358d7e02adfe353f8137d1535e34f112d7a3b9fbf06b5c64dee5e4b2042",
+                      "top": "9482ce541c7198e21947c3043f12dddda6184bb4928f01ae2c3f885b2ed3d5bb"
+                    },
+                    {
+                      "left": "9482ce541c7198e21947c3043f12dddda6184bb4928f01ae2c3f885b2ed3d5bb",
+                      "right": "3d93579d9f5b22387cb46c1ad280da9ba9e1fe753972ef08d9e9f1c938a765c0",
+                      "top": "6c83c08ee21925ce8c958a3b0b5da21bb04d66465f6f1366783f637bcdbb9d47"
+                    }
+                  ]
                 }
-              ]
               }
             }
           }
@@ -132,17 +143,17 @@
             "value": {
               "anchormakers": [
                   {
-                    "ledger": "bitcoin",
+                    "ledger": "btc",
                     "address": "3HfLtfVSddZv5HGLYfJbUbNBfJdgkau5ZQ",
                     "identitychainid": "888888655866a003faabd999c7b0a7c908af17d63fd2ac2951dc99e1ad2a14f4"
                   },
                   {
-                    "ledger": "ethereum",
+                    "ledger": "eth",
                     "address": "0xFe44DAeb65166846fccb3f4aA7186e36247b1C1E",
                     "identitychainid": "888888655866a003faabd999c7b0a7c908af17d63fd2ac2951dc99e1ad2a14f4"
                   },
                   {
-                    "ledger": "stellar",
+                    "ledger": "xlm",
                     "address": "GAF44237DTEZIDDMXBJ4KJRA3SUSP45ZXPRUZ3G7MB3JD2KJ2LPF6VBX",
                     "identitychainid": "888888b02c99d60b41357f5e28a1e96f4b90d370f6a460f2062cdda64e3fc7a4"
                   }
@@ -233,9 +244,9 @@
             "description": "Type of the Factom object",
             "type": "string"
           },
-          "directoryblockkeymr": {
-            "description": "Hash of the parent directory block, anchored into external ledgers",
-            "type": "string"
+          "directoryblockheight": {
+            "description": "Height of the parent directory block, anchored into external ledgers",
+            "type": "integer"
           }
         }
       },
@@ -259,12 +270,14 @@
       "Anchor": {
         "type": "object",
         "properties": {
-          "ledger": {
-            "description": "Ledger name",
+          "anchorhash": {
             "type": "string"
           },
-          "type": {
-            "description": "Ledger type",
+          "directoryblockheight": {
+            "type": "integer"
+          },
+          "ledger": {
+            "description": "Ledger name",
             "type": "string"
           },
           "timestamp": {
@@ -287,20 +300,14 @@
           }
         }
       },
-      "Anchors": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/Anchor"
-        }
-      },
       "Receipt": {
         "type": "object",
         "properties": {
           "object": {
             "$ref": "#/components/schemas/FactomObject"
           },
-          "anchors": {
-            "$ref": "#/components/schemas/Anchors"
+          "anchor": {
+            "$ref": "#/components/schemas/Anchor"
           }
         }
       },
